@@ -6,7 +6,7 @@
         public string TypeSupplier { get; set; }
         public string NameSupplier { get; set; }
         public string Inn { get; set; } // ИНН поставщика
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }//
         public double AverageQualitySupply { get; set; }
     }
 }

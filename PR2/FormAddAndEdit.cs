@@ -60,7 +60,7 @@ namespace PR2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке типов поставщиков: {ex.Message}");
+                MessageBox.Show($"Ошибка при загрузке типов поставщиков: {ex.Message}");//
             }
         }
 

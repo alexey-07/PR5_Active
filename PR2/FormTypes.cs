@@ -17,7 +17,7 @@ namespace PR2
         {
             base.OnLoad(e);
             db = new AppContext();
-            LoadMaterialTypes(); // Вызов метода, который загрузит и отобразит типы партнеров
+            LoadMaterialTypes(); // Вызов метода, который загрузит и отобразит типы партнеров//
 
         }
 

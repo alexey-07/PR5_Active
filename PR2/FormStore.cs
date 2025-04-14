@@ -261,7 +261,7 @@ namespace PR2
 
         private void dataGridViewFillStore_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Обработка клика по ячейке, если необходимо
+            // Обработка клика по ячейке, если необходимо//
         }
 
         private void labelStore_Click(object sender, EventArgs e)
