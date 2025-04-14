@@ -97,7 +97,7 @@ namespace PR2
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            using (FormExit formAdd = new FormExit())
+            using (FormEdit formAdd = new FormEdit())
             {
                 DialogResult result = formAdd.ShowDialog(this);
 
@@ -108,8 +108,8 @@ namespace PR2
                 {
                     NameSupplier = formAdd.NameSupplier,
                     IdSupplierType = formAdd.SelectedSupplierType.Id,
-                    Inn = formAdd.Inn
-                    
+                    Inn = formAdd.Inn,
+                    IsActive = formAdd.checkBox.Checked
                 };
 
                 using (var db = new AppContext())
@@ -133,7 +133,7 @@ namespace PR2
 
                 if (selectedSupplier != null)
                 {
-                    using (FormExit formEdit = new FormExit(selectedSupplier)) // Передаем выбранного поставщика в форму редактирования
+                    using (FormEdit formEdit = new FormEdit(selectedSupplier)) // Передаем выбранного поставщика в форму редактирования
                     {
                         DialogResult result = formEdit.ShowDialog(this);
 
@@ -145,6 +145,7 @@ namespace PR2
                                 selectedSupplier.NameSupplier = formEdit.NameSupplier; // Обновляем название поставщика
                                 selectedSupplier.IdSupplierType = formEdit.SelectedSupplierType?.Id ?? 0; // Извлекаем Id типа поставщика
                                 selectedSupplier.Inn = formEdit.Inn;
+                                selectedSupplier.IsActive = formEdit.checkBox.Checked;
                                 
 
                                 db.Suppliers.Update(selectedSupplier); // Обновляем запись в базе данных

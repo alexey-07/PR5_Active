@@ -5,7 +5,7 @@ using PR2.Models;
 
 namespace PR2
 {
-    public partial class FormExit : Form
+    public partial class FormEdit : Form
     {
         string msgError = "Поле не может быть пустым";
         private Supplier selectedSupplier;
@@ -14,12 +14,12 @@ namespace PR2
         public string NameSupplier { get; set; } // Название поставщика
         public string Inn { get; set; } // ИНН поставщика
 
-        public FormExit()
+        public FormEdit()
         {
             InitializeComponent();
         }
 
-        public FormExit(Supplier supplier) : this() // Конструктор, принимающий объект Supplier
+        public FormEdit(Supplier supplier) : this() // Конструктор, принимающий объект Supplier
         {
             using (var db = new AppContext())
             {

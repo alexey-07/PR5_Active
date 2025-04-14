@@ -1,6 +1,6 @@
 ﻿namespace PR2
 {
-    partial class FormExit
+    partial class FormEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEdit));
             textBoxName = new TextBox();
             textBoxInn = new TextBox();
             label2 = new Label();
@@ -213,11 +213,11 @@
         private Label label5;
         private Button buttonCanel;
         private Button buttonSave;
-        protected internal CheckBox checkBox;
         private ComboBox comboBoxTypeId;
         private ErrorProvider errorProviderName;
         private ErrorProvider errorProviderInn;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
+        public CheckBox checkBox;
     }
 }
