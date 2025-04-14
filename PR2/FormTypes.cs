@@ -97,7 +97,7 @@ namespace PR2
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            using (FormEdit formAdd = new FormEdit())
+            using (FormAddAndEdit formAdd = new FormAddAndEdit())
             {
                 DialogResult result = formAdd.ShowDialog(this);
 
@@ -133,7 +133,7 @@ namespace PR2
 
                 if (selectedSupplier != null)
                 {
-                    using (FormEdit formEdit = new FormEdit(selectedSupplier)) // Передаем выбранного поставщика в форму редактирования
+                    using (FormAddAndEdit formEdit = new FormAddAndEdit(selectedSupplier)) // Передаем выбранного поставщика в форму редактирования
                     {
                         DialogResult result = formEdit.ShowDialog(this);
 
@@ -148,10 +148,10 @@ namespace PR2
                                 selectedSupplier.IsActive = formEdit.checkBox.Checked;
                                 
 
-                                db.Suppliers.Update(selectedSupplier); // Обновляем запись в базе данных
-                                db.SaveChanges(); // Сохраняем изменения
+                                db.Suppliers.Update(selectedSupplier); 
+                                db.SaveChanges(); 
                                 MessageBox.Show("Поставщик обновлен");
-                                LoadMaterialTypes(); // Обновляем список типов продуктов
+                                LoadMaterialTypes(); 
                             }
                             catch (DbUpdateException dbEx)
                             {
@@ -177,7 +177,7 @@ namespace PR2
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var selectedSupplierResult = GetSelectedSupplier(); // Получаем выбранного поставщика
+            var selectedSupplierResult = GetSelectedSupplier(); 
 
             if (selectedSupplierResult != null)
             {
@@ -191,10 +191,10 @@ namespace PR2
 
                     if (supplierToDelete != null)
                     {
-                        db.Suppliers.Remove(supplierToDelete); // Удаляем найденного поставщика
-                        db.SaveChanges(); // Сохраняем изменения в базе данных
+                        db.Suppliers.Remove(supplierToDelete); 
+                        db.SaveChanges(); 
                         MessageBox.Show("Поставщик удален");
-                        LoadMaterialTypes(); // Обновляем список поставщиков
+                        LoadMaterialTypes(); 
                     }
                     else
                     {

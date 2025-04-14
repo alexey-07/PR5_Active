@@ -1,6 +1,6 @@
 ﻿namespace PR2
 {
-    partial class FormEdit
+    partial class FormAddAndEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddAndEdit));
             textBoxName = new TextBox();
             textBoxInn = new TextBox();
             label2 = new Label();
             labelName = new Label();
             label4 = new Label();
-            label5 = new Label();
             checkBox = new CheckBox();
             buttonCanel = new Button();
             buttonSave = new Button();
@@ -73,9 +72,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(13, 10);
             label2.Name = "label2";
-            label2.Size = new Size(117, 15);
+            label2.Size = new Size(97, 15);
             label2.TabIndex = 7;
-            label2.Text = "ID Типа поставщика";
+            label2.Text = "Тип поставщика";
             // 
             // labelName
             // 
@@ -95,30 +94,22 @@
             label4.TabIndex = 9;
             label4.Text = "ИНН";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 142);
-            label5.Name = "label5";
-            label5.Size = new Size(121, 15);
-            label5.TabIndex = 10;
-            label5.Text = "Активно / неактивно";
-            // 
             // checkBox
             // 
             checkBox.AutoSize = true;
-            checkBox.Location = new Point(13, 160);
+            checkBox.Location = new Point(13, 145);
             checkBox.Name = "checkBox";
-            checkBox.Size = new Size(72, 19);
+            checkBox.Size = new Size(152, 19);
             checkBox.TabIndex = 22;
-            checkBox.Text = "Активно";
+            checkBox.Text = "Активен ли поставщик";
             checkBox.UseVisualStyleBackColor = true;
             checkBox.CheckedChanged += checkBox_CheckedChanged;
             checkBox.TextChanged += checkBox_TextChanged;
             // 
             // buttonCanel
             // 
-            buttonCanel.BackColor = Color.White;
+            buttonCanel.BackColor = Color.FromArgb(103, 186, 128);
+            buttonCanel.FlatStyle = FlatStyle.Flat;
             buttonCanel.Location = new Point(13, 13);
             buttonCanel.Name = "buttonCanel";
             buttonCanel.Size = new Size(75, 28);
@@ -129,10 +120,11 @@
             // 
             // buttonSave
             // 
-            buttonSave.BackColor = Color.White;
+            buttonSave.BackColor = Color.FromArgb(103, 186, 128);
+            buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Location = new Point(94, 13);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(75, 28);
+            buttonSave.Size = new Size(81, 28);
             buttonSave.TabIndex = 14;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
@@ -156,6 +148,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(244, 232, 211);
             flowLayoutPanel1.Controls.Add(buttonCanel);
             flowLayoutPanel1.Controls.Add(buttonSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
@@ -173,7 +166,6 @@
             flowLayoutPanel2.Controls.Add(textBoxName);
             flowLayoutPanel2.Controls.Add(label4);
             flowLayoutPanel2.Controls.Add(textBoxInn);
-            flowLayoutPanel2.Controls.Add(label5);
             flowLayoutPanel2.Controls.Add(checkBox);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
@@ -183,7 +175,7 @@
             flowLayoutPanel2.Size = new Size(384, 201);
             flowLayoutPanel2.TabIndex = 26;
             // 
-            // FormExit
+            // FormEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -192,7 +184,7 @@
             Controls.Add(flowLayoutPanel2);
             Controls.Add(flowLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "FormExit";
+            Name = "FormEdit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Справочник";
             Load += FormExit_Load;
@@ -210,7 +202,6 @@
         private Label label2;
         private Label labelName;
         private Label label4;
-        private Label label5;
         private Button buttonCanel;
         private Button buttonSave;
         private ComboBox comboBoxTypeId;

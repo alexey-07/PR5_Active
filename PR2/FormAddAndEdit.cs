@@ -5,31 +5,34 @@ using PR2.Models;
 
 namespace PR2
 {
-    public partial class FormEdit : Form
+    public partial class FormAddAndEdit : Form
     {
         string msgError = "Поле не может быть пустым";
         private Supplier selectedSupplier;
 
-        public SupplierType SelectedSupplierType { get; set; } // Объект типа поставщика
-        public string NameSupplier { get; set; } // Название поставщика
-        public string Inn { get; set; } // ИНН поставщика
+        public SupplierType SelectedSupplierType { get; set; } 
+        public string NameSupplier { get; set; } 
+        public string Inn { get; set; } 
 
-        public FormEdit()
+        public FormAddAndEdit()
         {
             InitializeComponent();
         }
 
-        public FormEdit(Supplier supplier) : this() // Конструктор, принимающий объект Supplier
+        public FormAddAndEdit(Supplier supplier) : this()
         {
-            using (var db = new AppContext())
+            selectedSupplier = supplier;
+            
+            if (selectedSupplier != null)
             {
-                var supplierTypes = db.SupplierTypes.ToList();
-                comboBoxTypeId.DataSource = supplierTypes; // supplierTypes - это список типов поставщиков
-                comboBoxTypeId.DisplayMember = "TypeSupplier"; // Название, которое будет отображаться
-                comboBoxTypeId.ValueMember = "Id"; // Значение, которое будет использоваться
-                //LoadSupplierTypes(); // Загружаем типы поставщиков
+                
+                comboBoxTypeId.Text=selectedSupplier.IdSupplierType.ToString();
+                textBoxName.Text = selectedSupplier.NameSupplier; 
+                textBoxInn.Text = selectedSupplier.Inn; 
+                SelectedSupplierType = selectedSupplier.SupplierType;
+                checkBox.Checked = selectedSupplier.IsActive;
             }
-
+            LoadSupplierTypes();
         }
 
         private async void FormExit_Load(object sender, EventArgs e)
@@ -46,9 +49,9 @@ namespace PR2
                     var supplierTypes = await db.SupplierTypes.ToListAsync();
                     comboBoxTypeId.DataSource = supplierTypes;
                     comboBoxTypeId.DisplayMember = "TypeSupplier";
-                    comboBoxTypeId.ValueMember = "Id"; // Поле, которое будет использоваться как значение
+                    comboBoxTypeId.ValueMember = "Id"; 
 
-                    // Устанавливаем выбранный элемент в comboBoxTypeId
+                
                     if (SelectedSupplierType != null)
                     {
                         comboBoxTypeId.SelectedItem = supplierTypes.FirstOrDefault(st => st.Id == SelectedSupplierType.Id);
@@ -69,11 +72,11 @@ namespace PR2
                 SelectedSupplierType = selectedType;
             }
 
-            // Сохраняем название поставщика из текстового поля
-            NameSupplier = textBoxName.Text; // Предполагается, что у вас есть текстовое поле textBoxName
+            
+            NameSupplier = textBoxName.Text; 
 
-            // Сохраняем ИНН из текстового поля
-            Inn = textBoxInn.Text; // Получаем значение ИНН из textBoxInn
+           
+            Inn = textBoxInn.Text; 
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -81,8 +84,8 @@ namespace PR2
 
         private void buttonCanel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel; // Устанавливаем результат диалога
-            this.Close(); // Закрываем форму
+            this.DialogResult = DialogResult.Cancel; 
+            this.Close(); 
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
